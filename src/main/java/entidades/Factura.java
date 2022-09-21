@@ -15,9 +15,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+
 
 @Entity
 @Table(name = "factura")
+@Data
+@Builder
 public class Factura implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -34,75 +42,79 @@ public class Factura implements Serializable{
 	@Column(name = "total")
 	private int total;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "fk_cliente") 
-	private Cliente cliente;
+//	@ManyToOne(cascade = CascadeType.PERSIST)
+//	@JoinColumn(name = "fk_cliente") 
+//	private Cliente cliente;
 	
 	//unidireccional
 	//@OneToMany(cascade = CascadeType.ALL)
 	//private List<DetalleFactura> detalles = new ArrayList<DetalleFactura>();
 	
 	//bidireccional
-	@OneToMany(mappedBy = "factura", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<DetalleFactura> detalles = new ArrayList<DetalleFactura>();
+//	@OneToMany(mappedBy = "factura", cascade = CascadeType.ALL, orphanRemoval = true)
+//	private List<DetalleFactura> detalles = new ArrayList<DetalleFactura>();
 	
 	
-	public Factura() {
-		
-	}
 	
-	public Factura(String fecha, int numero) {
-		this.fecha = fecha;
-		this.numero = numero;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
-
-	public int getNumero() {
-		return numero;
-	}
-
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public List<DetalleFactura> getDetalles() {
-		return detalles;
-	}
-
-	public void setDetalles(List<DetalleFactura> detalles) {
-		this.detalles = detalles;
-	}
-
-	public int getTotal() {
-		return total;
-	}
-
-	public void setTotal(int total) {
-		this.total = total;
-	}
+	//CON LOMBOK ESTO YA NO ES NECESARIO
+	
+	
+//	public Factura() {
+//		
+//	}
+//	
+//	public Factura(String fecha, int numero) {
+//		this.fecha = fecha;
+//		this.numero = numero;
+//	}
+//
+//	public Long getId() {
+//		return id;
+//	}
+//
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
+//
+//	public String getFecha() {
+//		return fecha;
+//	}
+//
+//	public void setFecha(String fecha) {
+//		this.fecha = fecha;
+//	}
+//
+//	public int getNumero() {
+//		return numero;
+//	}
+//
+//	public void setNumero(int numero) {
+//		this.numero = numero;
+//	}
+//
+//	public Cliente getCliente() {
+//		return cliente;
+//	}
+//
+//	public void setCliente(Cliente cliente) {
+//		this.cliente = cliente;
+//	}
+//
+//	public List<DetalleFactura> getDetalles() {
+//		return detalles;
+//	}
+//
+//	public void setDetalles(List<DetalleFactura> detalles) {
+//		this.detalles = detalles;
+//	}
+//
+//	public int getTotal() {
+//		return total;
+//	}
+//
+//	public void setTotal(int total) {
+//		this.total = total;
+//	}
 	
 	
 
