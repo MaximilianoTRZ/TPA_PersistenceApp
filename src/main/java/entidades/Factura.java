@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.envers.Audited;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,6 +28,7 @@ import lombok.NonNull;
 @Table(name = "factura")
 @Data
 @Builder
+@Audited
 public class Factura implements Serializable{
 	private static final long serialVersionUID = 1L;
 

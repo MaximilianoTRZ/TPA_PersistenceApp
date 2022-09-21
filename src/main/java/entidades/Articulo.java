@@ -16,6 +16,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,6 +31,7 @@ import lombok.NonNull;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Audited
 public class Articulo implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -46,6 +50,7 @@ public class Articulo implements Serializable{
 	@NonNull private int precio;
 
 	@OneToMany(mappedBy = "articulo", cascade = CascadeType.PERSIST)
+//	@NotAudited //Se coloca cuando no queremos auditar la relacion.
 	private List<DetalleFactura> detalle = new ArrayList<DetalleFactura>();
 	
 	
